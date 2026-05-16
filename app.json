@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "stickerpack",
+    "name": "StickerPack",
     "slug": "stickerpack",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "splash": {
       "image": "./assets/splash-icon.png",
@@ -13,18 +13,36 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": false,
+      "bundleIdentifier": "com.yourname.stickerpack",
+      "infoPlist": {
+        "NSPhotoLibraryUsageDescription": "스티커를 만들기 위해 사진에 접근합니다.",
+        "NSPhotoLibraryAddUsageDescription": "만든 스티커를 사진첩에 저장합니다.",
+        "NSCameraUsageDescription": "카메라로 스티커를 만들 수 있습니다."
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "package": "com.yourname.stickerpack",
+      "permissions": [
+        "android.permission.READ_MEDIA_IMAGES",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.CAMERA"
+      ]
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
+    "plugins": [
+      "expo-image-picker",
+      "expo-media-library",
+      "expo-camera"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "your-eas-project-id"
+      }
     }
   }
 }
